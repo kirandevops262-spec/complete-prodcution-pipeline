@@ -1,10 +1,11 @@
-FROM maven:3.9.0-eclipse-temurin-17 as build
-WORKDIR /app
-COPY . .
-RUN mvn clean install
-
-FROM eclipse-temurin:17.0.6_10-jdk
-WORKDIR /app
-COPY --from=build /app/target/demoapp.jar /app/
+FROM eclipse-temurin:17-jdk-alpine
+    
 EXPOSE 8080
-CMD ["java", "-jar","demoapp.jar"]
+ 
+ENV APP_HOME=/usr/src/app
+
+COPY app/*.jar $APP_HOME/app.jar
+
+WORKDIR $APP_HOME
+
+CMD ["java", "-jar", "app.jar"]
