@@ -34,8 +34,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          PATH: ${{ env.JAVA_HOME }}/bin:${{ env.PATH }}
         run: |
+          export PATH=$PATH:/usr/share/maven/bin:/usr/local/maven/bin
           mvn verify sonar:sonar \
             -Dsonar.projectKey=bankapp \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
@@ -73,9 +73,9 @@ jobs:
           cache: maven
 
       - name: Build & Test
-        env:
-          PATH: ${{ env.JAVA_HOME }}/bin:${{ env.PATH }}
-        run: mvn clean package
+        run: |
+          export PATH=$PATH:/usr/share/maven/bin:/usr/local/maven/bin
+          mvn clean package
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
