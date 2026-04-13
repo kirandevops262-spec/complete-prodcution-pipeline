@@ -29,7 +29,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<jacoco.version>0.8.7</jacoco.version>
-   		<sonar.host.url>http://13.233.223.219:9000</sonar.host.url>
+   		<sonar.host.url>http://13.235.135.213:9000</sonar.host.url>
    		<sonar.projectKey>bankapp</sonar.projectKey>
    		<sonar.projectName>bankapp</sonar.projectName>
    		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
