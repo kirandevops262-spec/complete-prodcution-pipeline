@@ -32,9 +32,7 @@
    		<sonar.host.url>http://13.235.135.213:9000</sonar.host.url>
    		<sonar.projectKey>bankapp</sonar.projectKey>
    		<sonar.projectName>bankapp</sonar.projectName>
-   		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-    		<sonar.language>java</sonar.language>
 	</properties>
 	<dependencies>
 		<dependency>
