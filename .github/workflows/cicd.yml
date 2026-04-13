@@ -34,6 +34,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          PATH: ${{ env.JAVA_HOME }}/bin:${{ env.PATH }}
         run: |
           mvn verify sonar:sonar \
             -Dsonar.projectKey=bankapp \
@@ -72,6 +73,8 @@ jobs:
           cache: maven
 
       - name: Build & Test
+        env:
+          PATH: ${{ env.JAVA_HOME }}/bin:${{ env.PATH }}
         run: mvn clean package
 
       - name: Upload JAR artifact
